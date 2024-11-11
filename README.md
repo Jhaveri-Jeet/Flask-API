@@ -1,8 +1,4 @@
-Here is the updated README with your suggested changes, including the steps to activate the virtual environment, install dependencies, and set up XAMPP with the database creation:
-
----
-
-# Project Name: **Flask Authentication API**
+ Project Name: **Flask Authentication API**
 
 ## Overview
 This project is a simple Flask-based API that provides user authentication and registration functionalities. It supports JWT-based authentication, user registration, and login with password hashing and verification.
@@ -26,8 +22,8 @@ This project is a simple Flask-based API that provides user authentication and r
 
 ### 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/flask-authentication-api.git
-cd flask-authentication-api
+git clone https://github.com/Jhaveri-Jeet/Flask-API.git
+cd Flask-API
 ```
 
 ### 2. Create and activate the virtual environment:

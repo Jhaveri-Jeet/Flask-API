@@ -1,7 +1,7 @@
 from flask import jsonify, request
 from api import db
 from api.schemas.userModel import User
-from flask_jwt_extended import create_access_token
+from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
 
 
 def registerUser():
@@ -58,3 +58,14 @@ def loginUser():
     else:
         # If credentials are invalid, return an unauthorized response
         return jsonify({"message": "Invalid credentials"}), 401
+    
+
+def get_user_by_id(user_id):
+    return User.query.get_or_404(user_id)
+
+
+@jwt_required()
+def getProfile():
+    user_id = get_jwt_identity()
+    user = get_user_by_id(user_id)
+    return jsonify(name=user.name, email=user.email)

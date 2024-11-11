@@ -1,3 +1,7 @@
+Here is the updated README with your suggested changes, including the steps to activate the virtual environment, install dependencies, and set up XAMPP with the database creation:
+
+---
+
 # Project Name: **Flask Authentication API**
 
 ## Overview
@@ -22,33 +26,44 @@ This project is a simple Flask-based API that provides user authentication and r
 
 ### 1. Clone the repository:
 ```bash
-git clone https://github.com/Jhaveri-Jeet/Flask-API.git
-cd Flask-API
+git clone https://github.com/yourusername/flask-authentication-api.git
+cd flask-authentication-api
 ```
 
-### 2. Install dependencies:
-Ensure you have `pip` and `python` installed, then run:
+### 2. Create and activate the virtual environment:
+Run the following command to create the virtual environment:
+```bash
+python3 -m venv path/to/your/virtualenv
+```
+Activate the virtual environment:
+- On Windows:
+  ```bash
+  path\to\your\virtualenv\Scripts\activate
+  ```
+- On macOS/Linux:
+  ```bash
+  source path/to/your/virtualenv/bin/activate
+  ```
+
+### 3. Install dependencies:
+Once the virtual environment is activated, install the required packages by running:
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. Configure environment variables:
-Create a `.env` file in the root directory of the project and set up the following variables:
-```env
-SECRET_KEY=your_secret_key
-SQLALCHEMY_DATABASE_URI=your_database_uri
-SQLALCHEMY_TRACK_MODIFICATIONS=False
-JWT_SECRET_KEY=your_jwt_secret_key
-```
+### 4. Start XAMPP and Set Up the Database:
+- Make sure your **XAMPP server** is running. You will need to start **Apache** and **MySQL** from the XAMPP control panel.
+- Open **phpMyAdmin** (usually accessible via `http://localhost/phpmyadmin/`).
+- Create a new database, for example `flask_auth_db`.
+- Update your `.env` file with the correct database connection information:
+  ```env
+  SECRET_KEY=your_secret_key
+  SQLALCHEMY_DATABASE_URI=mysql+pymysql://username:password@localhost/flask_auth_db
+  SQLALCHEMY_TRACK_MODIFICATIONS=False
+  JWT_SECRET_KEY=your_jwt_secret_key
+  ```
 
-Example:
-```env
-SECRET_KEY=yourSecretKeyHere
-SQLALCHEMY_DATABASE_URI=mysql+pymysql://username:password@localhost/db_name
-JWT_SECRET_KEY=yourJWTSecretKeyHere
-```
-
-### 4. Create the database:
+### 5. Create the database:
 Run the following commands to create the necessary database tables:
 ```bash
 python
@@ -56,7 +71,7 @@ python
 >>> db.create_all()
 ```
 
-### 5. Run the application:
+### 6. Run the application:
 Start the Flask application using:
 ```bash
 flask run
@@ -100,7 +115,6 @@ By default, it will be accessible at `http://localhost:5000`.
 - **Method**: `GET`
 - **Authentication**: Bearer JWT token in the header.
 - **Response**: User profile details if the token is valid.
-
 
 
 ## Database Schema
